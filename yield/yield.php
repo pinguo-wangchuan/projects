@@ -21,11 +21,11 @@ function logger($fileName)
     }
 }
 
-$logger = logger(__DIR__ . '/log');
+/*$logger = logger(__DIR__ . '/log');
 echo __DIR__ . '/log';
 var_dump(get_class_methods($logger));
 $logger->send('Foo');
-$logger->send('Bar');
+$logger->send('Bar');*/
 
 function gen()
 {
@@ -34,12 +34,12 @@ function gen()
     $ret = (yield 'yield2');
     var_dump($ret);
     $ret = (yield 'yield3');
-    var_dump($ret);
+    //var_dump($ret);
 }
 
 $gen = gen();
-var_dump($gen->current());
+//var_dump($gen->current());
 var_dump($gen->send('ret1'));
 var_dump($gen->send('ret2'));
-//var_dump($gen->current());
+var_dump($gen->current());
 ?>
