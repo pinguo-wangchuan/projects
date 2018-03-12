@@ -11839,8 +11839,8 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># 检查你的Python版本</span>
-<span class="kn">from</span> <span class="nn">sys</span> <span class="kn">import</span> <span class="n">version_info</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 检查你的Python版本</span>
+<span class="kn">from</span> <span class="nn">sys</span> <span class="k">import</span> <span class="n">version_info</span>
 <span class="k">if</span> <span class="n">version_info</span><span class="o">.</span><span class="n">major</span> <span class="o">!=</span> <span class="mi">2</span> <span class="ow">and</span> <span class="n">version_info</span><span class="o">.</span><span class="n">minor</span> <span class="o">!=</span> <span class="mi">7</span><span class="p">:</span>
     <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;请使用Python 2.7来完成此项目&#39;</span><span class="p">)</span>
 </pre></div>
@@ -11855,8 +11855,8 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Import the visualization code</span>
-<span class="kn">import</span> <span class="nn">visuals</span> <span class="kn">as</span> <span class="nn">vs</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Import the visualization code</span>
+<span class="kn">import</span> <span class="nn">visuals</span> <span class="k">as</span> <span class="nn">vs</span>
 
 <span class="c1"># Pretty display for notebooks</span>
 <span class="o">%</span><span class="k">matplotlib</span> inline
@@ -11898,9 +11898,9 @@ div#notebook {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>回答：</strong></p>
-<p>只能出租车没有移动</p>
-<p>奖励是一个正数或者负数</p>
-<p>当交通灯为红色的时候，是禁止行动的，由于车没有移动，所以奖励为正数，当交通灯改变是绿色的时候可以行驶，车没有移动奖励为负数</p>
+<p>智能出租车没有移动</p>
+<p>当交通法规被遵守和被忽略时，智能出租车得到了正数和负数的奖励。</p>
+<p>由于智能出租车在红灯信号中保持静止，所以它得到了正数的奖励；当灯是绿色的没有迎面的交通，没有采取行动，所以它得到了负面的奖励；当交通灯为绿灯时，如果智能车没有移动，奖励有可能是正数，这种情况就是智能车要左转，现在是绿灯，但是对面的车是直行，因为直行车有通过优先权，所以应该等待直行车通过后才能左转，所以智能车没有移动会得到正数奖励</p>
 
 </div>
 </div>
@@ -11937,7 +11937,7 @@ div#notebook {
 
 <pre><code>learning：设置为True之后会强制驾驶代理程序使用Q-learning来学习
 
-epsilon：探索因子值，默认为1，例如epsilon=0.9则说明90%的可能性会选择之前学习的最好方式行驶，10%的可能性会自行进行新的探索，以取得更好的驾驶方案
+epsilon：探索因子值，默认为1，它是平衡探索（exploration）和利用（exploitation）的参数，epsilon越大，说明随机选择action的概率就越大，而利用Q表做决策的概率就越低
 
 alpha：学习率，默认是0.5，alpha越大，之前训练的效果就保留的越少，新训练出的奖励值占的比重就越大。
 
@@ -11981,7 +11981,7 @@ alpha：学习率，默认是0.5，alpha越大，之前训练的效果就保留�
 <div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Load the &#39;sim_no-learning&#39; log file from the initial simulation results</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Load the &#39;sim_no-learning&#39; log file from the initial simulation results</span>
 <span class="n">vs</span><span class="o">.</span><span class="n">plot_trials</span><span class="p">(</span><span class="s1">&#39;sim_no-learning.csv&#39;</span><span class="p">)</span>
 </pre></div>
 
@@ -13090,7 +13090,7 @@ zKxKnGCZmZmZmZlVyf8DYxT9cLALZDgAAAAASUVORK5CYII=
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong> 答案：</strong></p>
-<p>基本都在0.4左右，大约40%的频率做出不良决策。轻微事故在0.04左右，严重事故在0.06左右</p>
+<p>基本都在0.4左右，大约40%的频率做出不良决策。轻微事故在0.05左右，严重事故在0.06左右</p>
 <p>合理，随机驾驶的确是没有学习到任何东西而且都是事故</p>
 <p>如果是不造成事故和违反交通规则的行动，那么会给出正数奖励，反之则是负数。奖励可以表明收到了严重的惩罚</p>
 <p>没有，因为都是随机的</p>
@@ -13143,20 +13143,25 @@ zKxKnGCZmZmZmZlVyf8DYxT9cLALZDgAAAAASUVORK5CYII=
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>回答：</strong></p>
-<p>waypoint,inputs中的属性与学习安全性和效率相关性最高。</p>
-<p>waypoint：来判断下一步是否是正确的行驶方向，最后到达目的地</p>
-<p>inputs： 
-    light：交通灯的颜色决定了智能车的行为是否会造成违章</p>
-
-<pre><code>left：左侧的车根据交通规则增加了行驶条件，如果左侧有车要前进当前为红灯时，智能车不允许右转
-
-right：右侧的车根据交通规则增加了行驶条件，如果闯红灯时右侧的车正在前行，那么应该得到更大的惩罚值，所以应该考虑进去
-
-oncoming：对面的车根据交通规则增加了行驶条件，如果对面的车前进，智能车不允许左转
-
-</code></pre>
-<p>放弃的原因：</p>
-<p>deadline的选择对建模没有作用，剩余动作数并不能对智能车做出奖励还是惩罚</p>
+<p>安全驾驶要求司机遵守交通法规，包括灯光信号和通行权。结合安全驾驶和高效的方向感，司机可以安全到达目的地。</p>
+<p>相关特性:</p>
+<ul>
+<li><p>Waypoint: 要有效地到达目的地，需要知道提供的环境输入的最佳路径。</p>
+</li>
+<li><p>Light: 这是最直观的输入，表示通行权。闯红灯肯定会引起重大事故。</p>
+</li>
+<li><p>Left: 忽视左前方交叉交通会造成重大事故，特别是在智能出租车被允许右转红灯的情况下。</p>
+</li>
+<li><p>Oncoming: 智能车需要知道，当它向左转以避免意外时，是否有迎面而来的车辆</p>
+</li>
+</ul>
+<p>相关特性:</p>
+<ul>
+<li><p>Right: 知道右侧是否有车辆不会影响智能出租车。如果智能出租车的ligth是绿色的，那么它就有前进的道路。如果灯是红色的，智能出租车必须停止——不能直走或左转。由于正确的车辆正朝相反的方向行驶，所以智能出租车上的红色转弯并没有造成右侧的事故。</p>
+</li>
+<li><p>Deadline: 根据所提供的分级因素，截止日期并不重要，因为这些因素直接导致了安全驾驶，如上面规定的相关特征。如果waypoint提供了最优的方向，代理也遵守交通法规，那么出租车应该在合理的时间内到达目的地。</p>
+</li>
+</ul>
 
 </div>
 </div>
@@ -13286,7 +13291,7 @@ oncoming：对面的车根据交通规则增加了行驶条件，如果对面的
 <div class="prompt input_prompt">In&nbsp;[22]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Load the &#39;sim_default-learning&#39; file from the default Q-Learning simulation</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Load the &#39;sim_default-learning&#39; file from the default Q-Learning simulation</span>
 <span class="n">vs</span><span class="o">.</span><span class="n">plot_trials</span><span class="p">(</span><span class="s1">&#39;sim_default-learning.csv&#39;</span><span class="p">)</span>
 </pre></div>
 
@@ -14497,8 +14502,8 @@ sxpxgmVmZmZmZlYjTrDMzMzMzMxqxAmWmZmZmZlZjTjBMjMzMzMzqxEnWGZmZmZmZjXy/wShDWJ6
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="&#22238;&#31572;&#65306;"><strong>&#22238;&#31572;&#65306;</strong><a class="anchor-link" href="#&#22238;&#31572;&#65306;">&#182;</a></h3><p>和之前驾驶相比，Q-Learning取得了很大的进步，违反交通规则和交通事故的行为都降低了，意外事故也减少了，可靠性提高到了30%左右，也是很大的进步</p>
-<p>需要做20个训练实验，epsilon每次下降0.05，20次训练正好就可以从1下降到0，0</p>
+<h3 id="&#22238;&#31572;&#65306;"><strong>&#22238;&#31572;&#65306;</strong><a class="anchor-link" href="#&#22238;&#31572;&#65306;">&#182;</a></h3><p>和之前驾驶相比，他们的相似之处就是安全性都很低，都是F，但是Q-Learning取得了很大的进步，违反交通规则和交通事故的行为都降低了，意外事故也减少了，可靠性提高到了30%左右，也是很大的进步。</p>
+<p>需要做20个训练实验，epsilon每次下降0.05，20次训练正好就可以从1下降到0.</p>
 
 </div>
 </div>
@@ -14546,7 +14551,7 @@ sxpxgmVmZmZmZlYjTrDMzMzMzMxqxAmWmZmZmZlZjTjBMjMzMzMzqxEnWGZmZmZmZjXy/wShDWJ6
 <div class="prompt input_prompt">In&nbsp;[28]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Load the &#39;sim_improved-learning&#39; file from the improved Q-Learning simulation</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Load the &#39;sim_improved-learning&#39; file from the improved Q-Learning simulation</span>
 <span class="n">vs</span><span class="o">.</span><span class="n">plot_trials</span><span class="p">(</span><span class="s1">&#39;sim_improved-learning.csv&#39;</span><span class="p">)</span>
 </pre></div>
 
@@ -17198,13 +17203,12 @@ XFI7AAAAAElFTkSuQmCC
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>回答：</strong></p>
-<p>使用了math.cos(0.00157*self.t)的衰减函数</p>
+<p>使用了math.cos(0.00157*self.t)的衰减函数，它的优点在于，epsilon是单调变化的，并且曲线保证了前期能够尽可能的探索学习，越到后来学习的越少，也正好符合Q-Learning的这个规律</p>
 <p>采用alpha=0.5，大概需要训练1500次，基本覆盖了大部分状态，即可得到较好的效果</p>
-<p>tolerance采用了0.05，alpha是0.5，tolerance和衰减函数控制了训练的次数，只要训练的次数足够多将各种状态遇到基本就可以达到较好的训练效果
-alpha平衡了已有经验和新的探索对智能车行动的影响，理论上最开始的时候alpha应该尽量大，去更多探索，后来递减，使用过去的经验</p>
-<p>和之前的学习器比无论是安全性还是可靠性都提高了非常多</p>
-<p>结果表明成功的学习了一个合适的策略</p>
-<p>对结果比较满意</p>
+<p>tolerance采用了0.05，alpha是0.5。当我提高tolerance，策略似乎随着不良行为的增加和可靠性的降低而降低。当alpha值和容忍阈值增加时，安全性比可靠性更显著。</p>
+<p>在改进的Q-Learning中，与默认的Q-Learning相比，能够学习更多的知识，并做出更好的决策。</p>
+<p>在此基础上，驾驶代理程序成功地学习了相应的政策。</p>
+<p>我对Smartcab的安全性和可靠性感到满意。</p>
 
 </div>
 </div>
@@ -17222,7 +17226,7 @@ alpha平衡了已有经验和新的探索对智能车行动的影响，理论上
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="&#38382;&#39064;-8">&#38382;&#39064; 8<a class="anchor-link" href="#&#38382;&#39064;-8">&#182;</a></h3><p>给出几个关于最优策略是什么样子的例子（用你已定义的状态）。之后，查看<code>'sim_improved-learning.txt'</code>文本文件，看你的改进的Q-Learning算法的结果。<em>每个从模拟中纪录的状态，对于给定的状态，<strong>策略</strong>（得分最高的动作）是否正确？是否对于有些状态，有策略不同于预期的最优策略？</em>给出一个状态和记录的状态-动作的奖励，解释为什么正是个正确的策略。</p>
+<h3 id="&#38382;&#39064;-8">&#38382;&#39064; 8<a class="anchor-link" href="#&#38382;&#39064;-8">&#182;</a></h3><p>给出几个关于最优策略是什么样子的例子（用你已定义的状态）。之后，查看<code>'sim_improved-learning.txt'</code>文本文件，看你的改进的Q-Learning算法的结果。_每个从模拟中纪录的状态，对于给定的状态，<strong>策略</strong>（得分最高的动作）是否正确？是否对于有些状态，有策略不同于预期的最优策略？_给出一个状态和记录的状态-动作的奖励，解释为什么正是个正确的策略。</p>
 
 </div>
 </div>
@@ -17232,22 +17236,33 @@ alpha平衡了已有经验和新的探索对智能车行动的影响，理论上
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>回答：</strong></p>
-<p>宏观上最优策略就是在保证安全性的情况下用最少的步骤到达目的地，由于训练之后大部分状态都遇到过，所以安全性的问题有所保障，不会出违反交通规则和出交通事故的情况，除此之外，最佳策略也是希望智能车能够把握自己的大方向，随机应变，智能的接近目的地。</p>
-<p>例如:</p>
-
-<pre><code>1. 下一步需要直行但是遇到了红灯，这个时候停留在原地None的行为指标就应该时最好的。
-
-2. 下一步需要向右转但是遇到了红灯，左侧的车如果直行，那么None的行为指标是最好的，而不是Right
-
-</code></pre>
-<p>对于给定的状态，策略（得分最高的动作）是正确的。</p>
-<p>对于有些状态，存在着不用于预期的最优策略。</p>
-<p>('right', 'red', 'left', None, 'left')
- -- None : 1.78
- -- forward : -10.19
- -- right : 1.54
- -- left : -10.60</p>
-<p>上面数据表示，应该右转，当前为红灯，左侧的车要作转，右侧的车不动，对面的车要左转，虽然是红灯但是可以右转，所以等待是权重最高的也就是1.78，因为是红灯，所以左侧左转是违反交通规则的所以是负数，右侧车选择不动虽然不符合预期但是不违反交通规则，所以权重比None低一点，对面车左转违反交通规则，所以是负数。</p>
+<p>下面是一些可能的最优策略：</p>
+<p>('Waypoint', 'Light', 'Oncoming', 'Left'): Optimal Action
+('forward','red', None, None): None
+('forward', 'green', 'None, None): forward
+('forward', 'green', 'right, right): forward
+('right', 'red', 'right, none): right</p>
+<p>查看'sim_improved-learning.txt'文本文件，策略例子：</p>
+<p>('forward', 'green', 'right', None)
+ -- forward : 1.73
+ -- None : -1.69
+ -- right : 0.61
+ -- left : 0.24</p>
+<p>如上图所示，在这一状态下，在这一状态下，迎面驶来的车辆要向右行驶，没有左车，最优的解决方案是向前推进，得到的奖励是1.73。</p>
+<p>('left', 'red', 'right', 'left')
+ -- forward : -28.09
+ -- None : 0.76
+ -- right : 0.00
+ -- left : -15.74</p>
+<p>上面的状态显示，灯是红色的，而车辆需要往左行驶。最佳的解决方案是等待，所以这个是0.76。向前或向左采取任何行动都可能造成重大事故，所以都是负数。</p>
+<p>对大多数来说，政策是正确的，但是也有些政策是不正确的或次优的。</p>
+<p>一个不同于预期策略的例子:</p>
+<p>-('forward', 'red', 'right', 'right')
+ -- forward : 0.00
+ -- left : 0.00
+ -- right : 0.10
+ -- None : 0.00</p>
+<p>在这种状态下，右转拥有最好的Q-value,这与正确的等待操作不匹配。在训练过程中，可能从未探索过给定的状态，这将导致采取错误的操作。</p>
 
 </div>
 </div>
@@ -17276,6 +17291,8 @@ alpha平衡了已有经验和新的探索对智能车行动的影响，理论上
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>回答：</strong></p>
+<p>在一个交叉路口，Smartcab采取了一个基于最佳的q状态奖励值的动作，在分配的时间到达目的地。因为在给定的环境中，q状态与特定的交叉点没有关联，所以在当前状态下是否正确或不正确的决策并没有在未来的交叉点上进行，因此不可能实现最大化的奖励。此外，交集也没有连接到目的地，而目的地在试验之间变化。使用未来的奖励进行路由优化是不可能的。</p>
+<p>环境变量是随机的，不确定性的。例如，这些灯是随机变化的。由于这种不确定性的性质，对于环境中的同一状态，奖励可能每次都是不同的。此外，Smartcab的初始位置和最终目的地都可以从试用转向试用，因此未来的奖励在一条线路上是没有用处的。如果我们可以将奖励信息从目的地传播到交互中，那么可以有很多可能的路由组合，这取决于当前状态和目的地之间的交集的数量，使得状态空间非常大，而在学习状态下的代理连续不断地使它变得无用。</p>
 
 </div>
 </div>
