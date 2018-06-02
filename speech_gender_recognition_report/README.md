@@ -12,7 +12,7 @@
 
 4. `visuals.py` 可视化代码，主要来自于Udacity，供调用显示图形
 
-5. `gender_recognition_by_voice_cn.ipynb` 代码主要文件：
+5. `gender_recognition_by_voice.ipynb` 代码主要文件：
 
 #### 最后重新执行代码，计算整个代码运行时间为：
 --------------
